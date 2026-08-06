@@ -1,0 +1,18 @@
+<div class="upload-container">
+  <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+
+  <div class="buttons">
+    <button (click)="extractText()" [disabled]="!selectedFile">Get text from image</button>
+    <button (click)="copyText()" [disabled]="!extractedText">Copy text</button>
+  </div>
+
+  <div class="preview" *ngIf="imagePreview">
+    <h3>Preview:</h3>
+    <img [src]="imagePreview" alt="Preview" />
+  </div>
+
+  <div class="result" *ngIf="extractedText">
+    <h3>Extracted text:</h3>
+    <p>{{ extractedText }}</p>
+  </div>
+</div>
